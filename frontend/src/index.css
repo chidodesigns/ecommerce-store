@@ -1,0 +1,16 @@
+main {
+    min-height: 80vh;   
+}
+
+h3{
+    padding: 1rem 0;
+}
+
+/* Gloabl Utilities */
+.ml-auto{
+    margin-left: auto;
+}
+
+.w-100{
+    width: 100%
+}
