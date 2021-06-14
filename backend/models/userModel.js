@@ -24,10 +24,22 @@ const userSchema = mongoose.Schema({
     timestamps:true
 })
 
-//  call match password on specific user
+//  call matchPassword fn on specific user
 userSchema.methods.matchPassword = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password)
 }
+
+//  Adding Middleware 
+userSchema.pre('save', async function (next){
+
+    //  Mongoose allows us to check if data on the schema has been modified 
+    if (!this.isModified('password')) {
+        next()
+    }
+
+    const salt = await bcrypt.genSalt(10)
+    this.password = await bcrypt.hash(this.password, salt)
+})
 
 const User = mongoose.model('User', userSchema)
 
