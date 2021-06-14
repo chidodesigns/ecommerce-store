@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 //  Pages
 import Homepage from './pages/Homepage'
 import SingleProduct from './pages/SingleProduct'
+import CartPage from './pages/CartPage'
 const App = () => {
   return (
     <Router>
@@ -13,6 +14,7 @@ const App = () => {
         <Container>
           <Route path="/" component={Homepage} exact></Route>
           <Route path="/product/:id" component={SingleProduct}></Route>
+          <Route path="/cart/:id?" component={CartPage}></Route>
         </Container>
       </main>
       <Footer />
