@@ -9,6 +9,7 @@ import CartPage from './pages/CartPage'
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
+import ShippingPage from './pages/ShippingPage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/register" component={RegisterPage}></Route> 
           <Route path="/profile" component={ProfilePage}></Route> 
           <Route path="/product/:id" component={SingleProduct}></Route>
+          <Route path="/shipping" component={ShippingPage}></Route> 
           <Route path="/cart/:id?" component={CartPage}></Route>
           <Route path="/" component={Homepage} exact></Route>
         </Container>
