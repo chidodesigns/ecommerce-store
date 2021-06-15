@@ -7,6 +7,8 @@ import Homepage from './pages/Homepage'
 import SingleProduct from './pages/SingleProduct'
 import CartPage from './pages/CartPage'
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+
 const App = () => {
   return (
     <Router>
@@ -14,6 +16,7 @@ const App = () => {
       <main className="py-4">
         <Container>
           <Route path="/login" component={LoginPage}></Route> 
+          <Route path="/register" component={RegisterPage}></Route> 
           <Route path="/product/:id" component={SingleProduct}></Route>
           <Route path="/cart/:id?" component={CartPage}></Route>
           <Route path="/" component={Homepage} exact></Route>
