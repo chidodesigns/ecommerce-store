@@ -1,16 +1,19 @@
 import React from 'react';
+import { useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import {LinkContainer} from 'react-router-bootstrap';
 import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import { logout } from '../../actions/userActions';
 
 const Header = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const userLogin = useSelector(state => state.userLogin)
   const {userInfo} = userLogin
 
   const logoutHandler = () => {
     dispatch(logout())
+    history.push('/login')
   }
 
   return (
