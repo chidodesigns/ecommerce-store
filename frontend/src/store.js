@@ -7,7 +7,7 @@
     //  Cart Reducers
     import {cartReducer} from './reducers/cartReducers'
     //  User Reducers
-    import {userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer, userListReducer, userDeleteReducer} from './reducers/userReducers'
+    import {userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer, userListReducer, userDeleteReducer, userUpdateReducer} from './reducers/userReducers'
     //  Order Reducers
     import {orderCreateReducer, orderDetailsReducer, orderPayReducer, myOrdersReducer} from './reducers/orderReducers'
 
@@ -20,6 +20,7 @@
         userDetails: userDetailsReducer,
         userUpdateProfile: userUpdateProfileReducer,
         userDelete:userDeleteReducer,
+        userUpdate: userUpdateReducer,
         userList: userListReducer,
         orderCreate: orderCreateReducer,
         orderDetails: orderDetailsReducer,

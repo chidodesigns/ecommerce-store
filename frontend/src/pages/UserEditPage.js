@@ -5,7 +5,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import Message from '../components/utilities/Message';
 import Loader from '../components/utilities/Loader';
 import FormContainer from '../components/ui/FormContainer';
-import {getUserDetails} from '../actions/userActions';
+import {getUserDetails, updateUser} from '../actions/userActions';
+import {USER_ADMIN_UPDATE_RESET} from '../constants/userConstants';
 
 const UserEditPage = ({match, history}) => {
   const userId = match.params.id;
@@ -16,21 +17,38 @@ const UserEditPage = ({match, history}) => {
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
-
   const {loading, error, user} = userDetails;
 
+  const userUpdate = useSelector((state) => state.userUpdate);
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    success: successUpdate,
+  } = userUpdate;
+
   useEffect(() => {
-      if(!user.name || user._id !== userId){
-        dispatch(getUserDetails(userId))
-      }else{
-          setName(user.name)
-          setEmail(user.email)
-          setIsAdmin(user.isAdmin)
+    if (successUpdate) {
+      dispatch({type: USER_ADMIN_UPDATE_RESET});
+      history.push('/admin/userlist');
+    } else {
+      if (!user.name || user._id !== userId) {
+        dispatch(getUserDetails(userId));
+      } else {
+        setName(user.name);
+        setEmail(user.email);
+        setIsAdmin(user.isAdmin);
       }
-  }, [user, dispatch, userId]);
+    }
+  }, [user, dispatch, userId, successUpdate, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(updateUser({
+        _id: userId,
+        name,
+        email,
+        isAdmin
+    }))
   };
 
   return (
@@ -41,12 +59,12 @@ const UserEditPage = ({match, history}) => {
       <FormContainer>
         <h1>Edit User</h1>
 
-        {loading && <Loader />}
+        {loadingUpdate && <Loader />}
 
-        {error && <Message variant="danger">{error}</Message>}
-        
+        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
+
         <Form onSubmit={submitHandler}>
-        <Row className="py-2">
+          <Row className="py-2">
             <Form.Group controlId="name">
               <Form.Label>Full Name</Form.Label>
               <Form.Control
