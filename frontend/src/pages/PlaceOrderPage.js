@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Button, Row, Col, ListGroup, Image, Card} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 import Message from '../components/utilities/Message';
 import CheckoutSteps from '../components/layout/CheckoutSteps';
 import {createOrder} from '../actions/orderActions';
-import { orderCreateReducer } from '../reducers/orderReducers';
+
 
 const PlaceOrderPage = ({history}) => {
   const cart = useSelector((state) => state.cart);
@@ -35,7 +35,7 @@ const PlaceOrderPage = ({history}) => {
           // eslint-disable-next-line
           history.push(`/order/${order._id}`)
       }
-  }, [history, success])
+  }, [history, success, order._id])
 
   const placeOrderHandler = () => {
     dispatch(
