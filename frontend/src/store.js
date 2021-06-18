@@ -3,7 +3,7 @@
     import thunk from 'redux-thunk'
     import { composeWithDevTools } from 'redux-devtools-extension'
     //  Product Reducers
-    import {productListReducer, productDetailsReducer, productDeleteReducer} from './reducers/productReducers'
+    import {productListReducer, productDetailsReducer, productDeleteReducer, productCreateReducer} from './reducers/productReducers'
     //  Cart Reducers
     import {cartReducer} from './reducers/cartReducers'
     //  User Reducers
@@ -15,6 +15,7 @@
         productList: productListReducer,
         productDetails: productDetailsReducer,
         productDelete: productDeleteReducer,
+        productCreate: productCreateReducer,
         cart: cartReducer,
         userLogin: userLoginReducer,
         userRegister: userRegisterReducer,
