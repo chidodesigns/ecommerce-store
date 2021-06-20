@@ -35,7 +35,7 @@ const PlaceOrderPage = ({history}) => {
           // eslint-disable-next-line
           history.push(`/order/${order._id}`)
       }
-  }, [history, success, order._id])
+  }, [history, success])
 
   const placeOrderHandler = () => {
     dispatch(

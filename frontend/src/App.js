@@ -13,6 +13,7 @@ import ShippingPage from './pages/ShippingPage';
 import PaymentPage from './pages/PaymentPage';
 import PlaceOrderPage from './pages/PlaceOrderPage';
 import OrderPage from './pages/OrderPage'
+import OrderListPage from './pages/OrderListPage'
 import UserListPage from './pages/UserListPage'
 import UserEditPage from './pages/UserEditPage'
 import ProductListPage from './pages/ProductListPage'
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/cart/:id?" component={CartPage}></Route>
           <Route path="/admin/userlist" component={UserListPage}></Route>
           <Route path="/admin/productlist" component={ProductListPage}></Route>
+          <Route path="/admin/orderlist" component={OrderListPage}></Route>
           <Route path="/admin/product/:id/edit" component={ProductEditPage}></Route>
           <Route path="/admin/user/:id/edit" component={UserEditPage}></Route>
           <Route path="/" component={Homepage} exact></Route>
