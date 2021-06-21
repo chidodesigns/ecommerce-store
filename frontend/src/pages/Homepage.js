@@ -7,7 +7,9 @@ import Loader from '../components/utilities/Loader'
 //  State Management
 import {listProducts} from '../actions/productActions'
 
-const Homepage = () => {
+const Homepage = ({match}) => {
+
+    const keyword = match.params.keyword
 
     const dispatch = useDispatch()
 
@@ -16,8 +18,8 @@ const Homepage = () => {
     const { loading, error, products } = productList
  
     useEffect(() => {
-        dispatch(listProducts())
-    }, [dispatch])
+        dispatch(listProducts(keyword))
+    }, [dispatch, keyword])
 
     if (loading) {
         return (
