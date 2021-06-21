@@ -2,12 +2,15 @@ import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { Row , Col} from 'react-bootstrap';
 import ProductList from '../components/products/ProductsList'
+import {Link} from 'react-router-dom'
 import Message from '../components/utilities/Message'
 import Loader from '../components/utilities/Loader'
+import Meta from '../components/utilities/Meta'
 //  State Management
 import {listProducts} from '../actions/productActions'
 //  Pagination
 import Paginate from '../components/ui/Paginate'
+import ProductCarousel from '../components/ui/ProductCarousel';
 
 const Homepage = ({match}) => {
 
@@ -42,6 +45,8 @@ const Homepage = ({match}) => {
 
     return (
         <>
+        <Meta/>
+        {!keyword ? <ProductCarousel/> : <Link to="/" className="btn btn-light">Go Back</Link>}
           <h1>Latest Products</h1>   
          <Row>
               {products.map(product => (

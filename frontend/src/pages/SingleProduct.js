@@ -10,6 +10,7 @@ import {
 import {PRODUCT_CREATE_REVIEW_RESET} from '../constants/productConstants';
 import Message from '../components/utilities/Message';
 import Loader from '../components/utilities/Loader';
+import Meta from '../components/utilities/Meta'
 
 const SingleProduct = ({history, match}) => {
   const [qty, setQty] = useState(1);
@@ -68,6 +69,7 @@ const SingleProduct = ({history, match}) => {
 
   return (
     <>
+      <Meta title={product.name}/>
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>
