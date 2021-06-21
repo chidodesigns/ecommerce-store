@@ -2,6 +2,7 @@ import express  from 'express';
 import dotenv  from 'dotenv';
 import colors from 'colors'
 import connectDB from './config/db.js';
+import morgan from 'morgan'
 import path from 'path'
 
 //  Error Middleware
@@ -19,6 +20,11 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
+//  @todo create a stream for this logger
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'))
+}
 
 //  allows us to except JSON data in the body
 app.use(express.json())
