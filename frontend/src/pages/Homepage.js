@@ -6,20 +6,23 @@ import Message from '../components/utilities/Message'
 import Loader from '../components/utilities/Loader'
 //  State Management
 import {listProducts} from '../actions/productActions'
+//  Pagination
+import Paginate from '../components/ui/Paginate'
 
 const Homepage = ({match}) => {
 
     const keyword = match.params.keyword
+    const pageNumber = match.params.pageNumber || 1
 
     const dispatch = useDispatch()
 
     const productList = useSelector(state => state.productList)
 
-    const { loading, error, products } = productList
+    const { loading, error, products, page, pages } = productList
  
     useEffect(() => {
-        dispatch(listProducts(keyword))
-    }, [dispatch, keyword])
+        dispatch(listProducts(keyword, pageNumber))
+    }, [dispatch, keyword, pageNumber])
 
     if (loading) {
         return (
@@ -47,7 +50,7 @@ const Homepage = ({match}) => {
                   </Col>
               ))}
          </Row>
-           
+         <Paginate pages={pages} page={page} keyword={keyword ? keyword : ''}></Paginate>
         </>
     )   
 }
