@@ -31,5 +31,5 @@ npm run-script dev [this command runs both server and client] [using npm pck 'co
 - Register a new user to the application
 - log into your Mongo DB environment/collection
 - Go to users table and you will find newly registered USER 
-- edit the user model info 'isAdmin' and change its value to 'true' *default is false*
-- log back into app and you will have access to the admin panel/backoffice
+- Edit the user model info 'isAdmin' and change its value to 'true' *default is false*
+- Log back into app and you will have access to the admin panel/backoffice
