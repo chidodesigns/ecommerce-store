@@ -5,9 +5,6 @@ A basic ecommerce store that enables users to buy products.
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
-- [Support](#support)
-- [Contributing](#contributing)
 
 ## Installation
 
